@@ -1,13 +1,23 @@
 {
-  "background_color": "#ffffff",
-  "dir": "ltr",
-  "display": "standalone",
   "name": "Realm-Dice",
-  "orientation": "any",
-  "scope": "/",
-  "short_name": "Realm-Dice",
-  "start_url": "/",
-  "theme_color": "#ffffff",
-  "lang": "es",
-  "id": "/"
+  "short_name": "RealmDice",
+  "description": "Juego TCG táctico de dados y cartas.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#060913",
+  "theme_color": "#060913",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }
