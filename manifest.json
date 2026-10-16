@@ -1,0 +1,13 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Realm-Dice",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "Realm-Dice",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "lang": "es",
+  "id": "/"
+}
