@@ -285,6 +285,7 @@
 
             h.energy -= skill.cost;
             game.pendingSkill = skill;
+            actualizarPoseHeroe(h.id, skill.heal ? "habilidad" : "ataque");
 
             if (skill.heal) {
                 game.targetMode = 'heal';
