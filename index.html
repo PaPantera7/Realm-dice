@@ -28,6 +28,7 @@
     </style>
 </head>
 <body>
+<img id="img-barbaro" src="assets/heroes/barbaro/normal.png" alt="barbaro">
     <div id="builderScreen" class="overlay">
         <h2 style="color: #f59e0b; margin: 0 0 5px 0; font-size: 12pt;">🛡️ Arma tu Gremio (Elige 3)</h2>
         <p style="color: #94a3b8; font-size: 7pt; margin: 0 0 8px 0;">Toca las cartas para seleccionarlos para la batalla.</p>
@@ -447,6 +448,13 @@
         }
 
         renderBuilder();
+        function actualizarPoseHeroe(heroe, accion) {
+    const imagenHeroe = document.getElementById(`img-${heroe}`);
+    if (imagenHeroe) {
+        imagenHeroe.src = `assets/heroes/${heroe}/${accion}.png`;
+    }
+}
+
     </script>
 </body>
 </html>
