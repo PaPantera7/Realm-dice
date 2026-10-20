@@ -438,7 +438,7 @@
             let active = game.heroes.find(h => h.id === game.selectedHero);
             document.getElementById('selectedTitle').innerText = active ? `${active.name} Activo` : '';
             
-            let skillsDiv = document.getElementById('skills');
+           let skillsDiv = document.getElementById('skills');
             skillsDiv.innerHTML = '';
             if (active && active.alive) {
                 active.skills.forEach((s, idx) => {
@@ -449,11 +449,16 @@
 
         renderBuilder();
         function actualizarPoseHeroe(heroe, accion) {
+    // Si la acción es curación, usa curacion, de lo contrario la acción normal
+    const nombreArchivo = (accion === "habilidad") ? `${heroe}_curacion.png` : `${heroe}_${accion}.png`;
+    
+    // Busca la imagen en la carpeta principal assets/heroes/
     const imagenHeroe = document.getElementById(`img-${heroe}`);
     if (imagenHeroe) {
-        imagenHeroe.src = `assets/heroes/${heroe}/${accion}.png`;
+        imagenHeroe.src = `assets/heroes/${nombreArchivo}`;
     }
 }
+
 
     </script>
 </body>
