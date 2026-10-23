@@ -28,7 +28,7 @@
     </style>
 </head>
 <body>
-<img id="img-barbaro" src="assets/heroes/barbaro/normal.png" alt="barbaro">
+<img id="img-barbaro" src="assets/heroes/barbaro_normal.png" alt="barbaro">
     <div id="builderScreen" class="overlay">
         <h2 style="color: #f59e0b; margin: 0 0 5px 0; font-size: 12pt;">🛡️ Arma tu Gremio (Elige 3)</h2>
         <p style="color: #94a3b8; font-size: 7pt; margin: 0 0 8px 0;">Toca las cartas para seleccionarlos para la batalla.</p>
@@ -190,7 +190,7 @@
                 let sel = selectedIds.includes(h.id) ? 'selected' : '';
                 grid.innerHTML += `<div class="builder-card ${sel}" onclick="toggleSelect('${h.id}')">
                     <div style="font-size:7.5pt; font-weight:bold;">${h.name}</div>
-                    <div class="art" style="height:32px; font-size:15pt;">${h.icon}</div>
+                    <div class="art" style="height:32px;"><img id="img-${h.id}" src="assets/heroes/${h.id}_normal.png" style="height:100%; object-fit:contain;"></div>
                     <div style="font-size:6pt; color:#94a3b8;">HP:${h.hp} | En:${h.maxEnergy}</div>
                 </div>`;
             });
@@ -429,7 +429,7 @@
                 let targetable = game.targetMode === 'heal' && h.alive ? 'targetable' : '';
                 heroRow.innerHTML += `<div class="card ${sel} ${targetable}" style="opacity:${h.alive?1:0.3}" onclick="selectHero('${h.id}')">
                     <div style="font-size:7pt; font-weight:bold;">${h.name}</div>
-                    <div class="art">${h.icon}</div>
+                    <div class="art"><img id="img-${h.id}" src="assets/heroes/${h.id}_normal.png" style="height: 100%; object-fit: contain;"></div>
                     <div style="font-size:6pt;">HP: ${h.hp}/${h.maxHp}<br>En: ${h.energy}/${h.maxEnergy}</div>
                     ${game.phase==='ASSIGN'&&h.id===game.selectedHero&&game.reserve>0&&h.alive&&!game.targetMode?`<button class="btn" style="font-size:6pt; padding:2px; margin-top:2px;" onclick="event.stopPropagation();addAllEnergy()">+Cargar</button>`:''}
                 </div>`;
