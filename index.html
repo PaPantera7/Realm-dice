@@ -326,16 +326,23 @@
             let target = game.enemies.find(e => e.id === enemyId);
             let h = game.heroes.find(x => x.id === game.selectedHero);
             if (target && target.alive) {
-                target.hp = Math.max(0, target.hp - game.pendingSkill.dmg);
-                playSound('attack');
-                log(`🔥 ${h.name} atacó a ${target.name} por ${game.pendingSkill.dmg} daño.`);
-                if (target.hp === 0) target.alive = false;
-            }
-            game.targetMode = null;
-            game.pendingSkill = null;
-            document.getElementById('targetHint').style.display = 'none';
-            checkEnd();
-            render();
+    target.hp = Math.max(0, target.hp - game.pendingSkill.dmg);
+    playSound('attack');
+    
+    // <-- AGREGA AQUÍ EL CAMBIO DE POSE -->
+    actualizarPoseHeroe(h.id, 'ataque');
+setTimeout(() => {
+    actualizarPoseHeroe(h.id, 'normal');
+    render();
+}, 1000);
+
+log(`⚔️ ${h.name} atacó a ${target.name}...`);
+if (target.hp === 0) target.alive = false;
+
+game.targetMode = null;
+game.pendingSkill = null;
+document.getElementById('targetHint').style.display = 'none';
+checkEnd();
         }
 
         function resolveTurn() {
@@ -450,14 +457,12 @@
 
         renderBuilder();
         function actualizarPoseHeroe(heroe, accion) {
-    // Si la acción es curación, usa curacion, de lo contrario la acción normal
-    const nombreArchivo = (accion === "habilidad") ? `${heroe}_curacion.png` : `${heroe}_${accion}.png`;
-    
-    // Busca la imagen en la carpeta principal assets/heroes/
     const imagenHeroe = document.getElementById(`img-${heroe}`);
     if (imagenHeroe) {
-        imagenHeroe.src = `assets/heroes/${nombreArchivo}`;
+        imagenHeroe.src = `assets/heroes/${heroe}/${heroe}_${accion}.png`;
     }
+}
+
 }
 
 
