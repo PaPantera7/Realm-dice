@@ -325,7 +325,7 @@
             if (game.targetMode !== 'dmg') return;
             let target = game.enemies.find(e => e.id === enemyId);
             let h = game.heroes.find(x => x.id === game.selectedHero);
-            if (target && target.alive) {
+                if (target && target.alive && h) {
     target.hp = Math.max(0, target.hp - game.pendingSkill.dmg);
     playSound('attack');
     
