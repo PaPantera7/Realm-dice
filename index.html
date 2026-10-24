@@ -435,11 +435,10 @@ checkEnd();
                 let sel = h.id === game.selectedHero ? 'selected' : '';
                 let targetable = game.targetMode === 'heal' && h.alive ? 'targetable' : '';
                 heroRow.innerHTML += `<div class="card ${sel} ${targetable}" style="opacity:${h.alive?1:0.3}" onclick="selectHero('${h.id}')">
-                    <div style="font-size:7pt; font-weight:bold;">${h.name}</div>
-                    <div class="art"<div class="art"><img id="img-${h.id}" src="assets/heroes/${h.id}/${h.id}_normal.png" style="height: 100%; object-fit: contain;"></div>
-                    <div style="font-size:6pt;">HP: ${h.hp}/${h.maxHp}<br>En: ${h.energy}/${h.maxEnergy}</div>
-                    ${game.phase==='ASSIGN'&&h.id===game.selectedHero&&game.reserve>0&&h.alive&&!game.targetMode?`<button class="btn" style="font-size:6pt; padding:2px; margin-top:2px;" onclick="event.stopPropagation();addAllEnergy()">+Cargar</button>`:''}
-                </div>`;
+    <div style="font-size:7pt; font-weight:bold;">${h.name}</div>
+    <div class="art"><img id="img-${h.id}" src="assets/heroes/${h.id}/${h.id}_normal.png" style="height: 100%; object-fit: contain;"></div>
+    <div style="font-size:6pt;">HP: ${h.hp}/${h.maxHp}<br>En: ${h.energy}/${h.maxEnergy}</div>
+</div>`;
             });
 
             document.getElementById('reserveDisplay').innerText = `Reserva: ${game.reserve} pts`;
